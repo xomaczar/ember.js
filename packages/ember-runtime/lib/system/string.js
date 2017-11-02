@@ -32,7 +32,7 @@ const CLASSIFY_CACHE = new Cache(1000, str => {
       .replace(STRING_CLASSIFY_REGEXP_2, replace2);
   }
   return parts.join('/')
-  .replace(STRING_CLASSIFY_REGEXP_3, (match, separator, chr) => match.toUpperCase());
+    .replace(STRING_CLASSIFY_REGEXP_3, (match, separator, chr) => match.toUpperCase());
 });
 
 const STRING_UNDERSCORE_REGEXP_1 = (/([a-z\d])([A-Z]+)/g);
@@ -61,7 +61,7 @@ function _fmt(str, formats) {
   }
 
   // first, replace any ORDERED replacements.
-  let idx  = 0; // the current index for non-numerical replacements
+  let idx = 0; // the current index for non-numerical replacements
   return str.replace(/%@([0-9]+)?/g, (s, argIndex) => {
     argIndex = (argIndex) ? parseInt(argIndex, 10) - 1 : idx++;
     s = cachedFormats[argIndex];
@@ -71,7 +71,7 @@ function _fmt(str, formats) {
 
 function fmt(str, formats) {
   deprecate(
-    'Ember.String.fmt is deprecated, use ES6 template strings instead.',
+    'fmt is deprecated, use ES6 template strings instead.',
     false,
     { id: 'ember-string-utils.fmt', until: '3.0.0', url: 'http://babeljs.io/docs/learn-es2015/#template-strings' }
   );
